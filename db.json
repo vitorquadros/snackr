@@ -1,0 +1,104 @@
+{
+  "request": [
+    {
+      "name": "Almonds (30g)",
+      "description": "Raw whole almonds.",
+      "protein": 6,
+      "id": 1,
+      "calories": 170,
+      "price": 1.20,
+      "imageURL": "https://unsplash.com/photos/RZ-AHtxLPUE",
+      "carbs": 6
+    },
+    {
+      "name": "Greek Yogurt with Honey (150g)",
+      "description": "Plain Greek yogurt drizzled with honey.",
+      "protein": 15,
+      "id": 2,
+      "calories": 140,
+      "price": 1.50,
+      "imageURL": "https://unsplash.com/s/photos/greek-yogurt",
+      "carbs": 18
+    },
+    {
+      "name": "Apple Slices + Peanut Butter",
+      "description": "One medium apple with 1 tbsp peanut butter.",
+      "protein": 4,
+      "id": 3,
+      "calories": 200,
+      "price": 0.80,
+      "imageURL": "https://unsplash.com/photos/a-white-plate-topped-with-sliced-apples-and-a-bowl-of-peanut-butter-F-ReDCrjQbo",
+      "carbs": 30
+    },
+    {
+      "name": "Protein Bar",
+      "description": "Standard commercial protein bar (approx 60g).",
+      "protein": 20,
+      "id": 4,
+      "calories": 220,
+      "price": 2.50,
+      "imageURL": "https://unsplash.com/photos/a-protein-bar-rests-on-a-wooden-surface-TAj583bZBX0",
+      "carbs": 22
+    },
+    {
+      "name": "Trail Mix (40g)",
+      "description": "Mixed nuts, seeds and dried fruit.",
+      "protein": 6,
+      "id": 5,
+      "calories": 200,
+      "price": 1.80,
+      "imageURL": "https://unsplash.com/s/photos/trail-mix",
+      "carbs": 18
+    },
+    {
+      "name": "Hummus + Carrot Sticks",
+      "description": "50g hummus with raw carrot sticks.",
+      "protein": 4,
+      "id": 6,
+      "calories": 150,
+      "price": 1.00,
+      "imageURL": "https://unsplash.com/photos/a-bowl-of-hummus-with-carrots-and-crackers-tTWOkkuRIEM",
+      "carbs": 12
+    },
+    {
+      "name": "String Cheese (Mozzarella)",
+      "description": "One mozzarella cheese stick.",
+      "protein": 7,
+      "id": 7,
+      "calories": 80,
+      "price": 0.70,
+      "imageURL": "https://unsplash.com/s/photos/mozzarella-cheese",
+      "carbs": 1
+    },
+    {
+      "name": "Beef Jerky (28g)",
+      "description": "Lean dried beef jerky.",
+      "protein": 9,
+      "id": 8,
+      "calories": 116,
+      "price": 2.00,
+      "imageURL": "https://unsplash.com/s/photos/beef-jerky",
+      "carbs": 3
+    },
+    {
+      "name": "Banana (medium)",
+      "description": "One medium banana.",
+      "protein": 1.3,
+      "id": 9,
+      "calories": 105,
+      "price": 0.30,
+      "imageURL": "https://unsplash.com/photos/yellow-banana-on-white-background-Kl3467edwsE",
+      "carbs": 27
+    },
+    {
+      "name": "Dark Chocolate (30g, 70%)",
+      "description": "High-cocoa dark chocolate squares.",
+      "protein": 2.5,
+      "id": 10,
+      "calories": 170,
+      "price": 1.20,
+      "imageURL": "https://unsplash.com/photos/brown-chocolate-bar-on-black-table-uNi4M3sHqOo",
+      "carbs": 13
+    }
+  ]
+}
