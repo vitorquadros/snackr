@@ -14,7 +14,7 @@ struct Snack: Decodable, Identifiable {
     let price: Double
     let imageURL: String
     let calories: Int
-    let protein: Int
+    let protein: Double
     let carbs: Int
 }
 
