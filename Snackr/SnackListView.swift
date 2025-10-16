@@ -11,9 +11,10 @@ struct SnackListView: View {
     var body: some View {
         NavigationStack {
             List(MockData.sampleSnacksList) { snack in
-                Text(snack.name)
+                SnackListCell(snack: snack)
             }
             .navigationTitle("Snacks")
+            
         }
     }
 }
