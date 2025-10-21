@@ -8,30 +8,18 @@
 import SwiftUI
 
 struct SnackListView: View {
-    @State private var snacks: [Snack] = []
     
+    @StateObject private var vm = SnackListViewModel()
+
     var body: some View {
         NavigationStack {
-            List(snacks) { snack in
+            List(vm.snacks) { snack in
                 SnackListCell(snack: snack)
             }
             .navigationTitle("Snacks")
         }
         .onAppear {
-            getSnacks()
-        }
-    }
-    
-    func getSnacks() {
-        NetworkManager.shared.getSnacks { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let snacks):
-                    self.snacks = snacks
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
+            vm.getSnacks()
         }
     }
 }
