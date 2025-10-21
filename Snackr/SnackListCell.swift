@@ -35,7 +35,12 @@ struct SnackCellImage: View {
         AsyncImage(url: URL(string: snack.imageURL)) { phase in
             switch phase {
             case .empty:
-                ProgressView()
+                Image("food-placeholder")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 120, height: 90)
+                    .cornerRadius(8)
+                    .opacity(0.5)
             case .success(let image):
                 image
                     .resizable()
