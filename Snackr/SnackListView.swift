@@ -12,20 +12,28 @@ struct SnackListView: View {
     @StateObject private var vm = SnackListViewModel()
 
     var body: some View {
-        NavigationStack {
-            List(vm.snacks) { snack in
-                SnackListCell(snack: snack)
+        ZStack {
+            NavigationStack {
+                List(vm.snacks) { snack in
+                    SnackListCell(snack: snack)
+                }
+                .navigationTitle("Snacks")
             }
-            .navigationTitle("Snacks")
-        }
-        .onAppear {
-            vm.getSnacks()
+            .onAppear {
+                vm.getSnacks()
+            }
+            
+            if vm.isLoading {
+                LoadingView()
+            }
+            
         }
         .alert(item: $vm.alertItem) { alert in
             Alert(title: alert.title,
                   message: alert.message,
                   dismissButton: alert.dismissButton)
         }
+        
     }
 }
 

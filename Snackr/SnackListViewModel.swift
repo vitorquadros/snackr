@@ -13,9 +13,14 @@ final class SnackListViewModel: ObservableObject {
     @Published var snacks: [Snack] = []
     @Published var alertItem: AlertItem?
     
+    @Published var isLoading = false
+    
     func getSnacks() {
+        isLoading = true
         NetworkManager.shared.getSnacks { result in
             DispatchQueue.main.async {
+                self.isLoading = false
+                
                 switch result {
                 case .success(let snacks):
                     self.snacks = snacks
@@ -34,7 +39,7 @@ final class SnackListViewModel: ObservableObject {
                     case .unableToComplete:
                         self.alertItem = AlertContext.unableToComplete
                     }
-                }
+                }  
             }
         }
     }
