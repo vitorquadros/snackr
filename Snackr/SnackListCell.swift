@@ -12,7 +12,7 @@ struct SnackListCell: View {
     
     var body: some View {
         HStack(spacing: 16) {
-            AsyncImage(url: URL(string: snack.imageURL)) { phase in
+            AsyncImage(url: URL(string: "dasdasd")) { phase in
                 switch phase {
                 case .empty:
                     ProgressView()
@@ -23,9 +23,12 @@ struct SnackListCell: View {
                         .frame(width: 120, height: 90)
                         .cornerRadius(8)
                 case .failure:
-                    Image(systemName: "photo")
+                    Image("food-placeholder")
                         .resizable()
-                        .scaledToFit()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 120, height: 90)
+                        .cornerRadius(8)
+                        .opacity(0.5)
                 @unknown default:
                     EmptyView()
                 }
