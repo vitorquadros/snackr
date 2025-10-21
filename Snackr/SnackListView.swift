@@ -21,6 +21,11 @@ struct SnackListView: View {
         .onAppear {
             vm.getSnacks()
         }
+        .alert(item: $vm.alertItem) { alert in
+            Alert(title: alert.title,
+                  message: alert.message,
+                  dismissButton: alert.dismissButton)
+        }
     }
 }
 

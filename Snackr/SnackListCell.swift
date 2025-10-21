@@ -19,7 +19,8 @@ struct SnackListCell: View {
                 case .success(let image):
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 120, height: 90)
                         .cornerRadius(8)
                 case .failure:
                     Image(systemName: "photo")

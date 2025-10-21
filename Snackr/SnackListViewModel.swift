@@ -11,6 +11,7 @@ import Combine
 final class SnackListViewModel: ObservableObject {
     
     @Published var snacks: [Snack] = []
+    @Published var alertItem: AlertItem?
     
     func getSnacks() {
         NetworkManager.shared.getSnacks { result in
@@ -18,8 +19,21 @@ final class SnackListViewModel: ObservableObject {
                 switch result {
                 case .success(let snacks):
                     self.snacks = snacks
+                    
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    switch error {
+                    case .invalidResponse:
+                        self.alertItem = AlertContext.invalidResponse
+                        
+                    case .invalidData:
+                        self.alertItem = AlertContext.invalidData
+                        
+                    case .invalidURL:
+                        self.alertItem = AlertContext.invalidURL
+                        
+                    case .unableToComplete:
+                        self.alertItem = AlertContext.unableToComplete
+                    }
                 }
             }
         }
