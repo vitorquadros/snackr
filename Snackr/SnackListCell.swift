@@ -12,28 +12,7 @@ struct SnackListCell: View {
     
     var body: some View {
         HStack(spacing: 16) {
-            AsyncImage(url: URL(string: "dasdasd")) { phase in
-                switch phase {
-                case .empty:
-                    ProgressView()
-                case .success(let image):
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 120, height: 90)
-                        .cornerRadius(8)
-                case .failure:
-                    Image("food-placeholder")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 120, height: 90)
-                        .cornerRadius(8)
-                        .opacity(0.5)
-                @unknown default:
-                    EmptyView()
-                }
-            }
-            .frame(width: 120, height: 90)
+            SnackCellImage(snack: snack)
             
             VStack(alignment: .leading, spacing: 5) {
                 Text(snack.name)
@@ -45,6 +24,36 @@ struct SnackListCell: View {
                     .foregroundColor(.secondary)
             }
         }
+    }
+}
+
+struct SnackCellImage: View {
+    
+    let snack: Snack
+    
+    var body: some View {
+        AsyncImage(url: URL(string: snack.imageURL)) { phase in
+            switch phase {
+            case .empty:
+                ProgressView()
+            case .success(let image):
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 120, height: 90)
+                    .cornerRadius(8)
+            case .failure:
+                Image("food-placeholder")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 120, height: 90)
+                    .cornerRadius(8)
+                    .opacity(0.5)
+            @unknown default:
+                EmptyView()
+            }
+        }
+        .frame(width: 120, height: 90)
     }
 }
 
