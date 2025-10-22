@@ -69,6 +69,22 @@ struct SnackDetailView: View {
         .background(Color(.systemBackground))
         .cornerRadius(12)
         .shadow(radius: 40)
+        .overlay(Button {
+            
+        } label: {
+            ZStack {
+                Circle()
+                    .frame(width: 36, height: 36)
+                    .foregroundColor(.white)
+                    .opacity(0.6)
+                
+                Image(systemName: "xmark")
+                    .frame(width: 44, height: 44)
+                    .imageScale(.small)
+                    .foregroundColor(.black)
+            }
+            .padding([.top, .trailing], 2)
+        }, alignment: .topTrailing)
     }
 }
 
