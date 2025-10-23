@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SnackDetailView: View {
     let snack: Snack
+    @Binding var isShowingDetail: Bool
     
     var body: some View {
         VStack {
@@ -16,18 +17,18 @@ struct SnackDetailView: View {
                 phase in
                 switch phase {
                 case .empty:
-                    Image("food-placeholder")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 300, height: 250)
+                    ProgressView()
+                        .frame(width: 300, height: 225)
                 case .success(let image):
                     image
                         .resizable()
-                        .scaledToFit()
+                        .scaledToFill()
+                        .frame(width: 300, height: 225)
                 case .failure:
                     Image("food-placeholder")
                         .resizable()
-                        .scaledToFit()
+                        .scaledToFill()
+                        .frame(width: 300, height: 225)
                 @unknown default:
                     EmptyView()
                 }
@@ -37,6 +38,7 @@ struct SnackDetailView: View {
                 Text(snack.name)
                     .font(.title2)
                     .fontWeight(.semibold)
+                    .multilineTextAlignment(.center)
                 
                 Text(snack.description)
                     .multilineTextAlignment(.center)
@@ -70,7 +72,7 @@ struct SnackDetailView: View {
         .cornerRadius(12)
         .shadow(radius: 40)
         .overlay(Button {
-            
+            isShowingDetail = false
         } label: {
             ZStack {
                 Circle()
@@ -107,5 +109,5 @@ struct SnackMacro: View {
 }
 
 #Preview {
-    SnackDetailView(snack: MockData.sampleSnack)
+    SnackDetailView(snack: MockData.sampleSnack, isShowingDetail: .constant(true))
 }
