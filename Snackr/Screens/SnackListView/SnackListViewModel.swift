@@ -15,6 +15,9 @@ final class SnackListViewModel: ObservableObject {
     
     @Published var isLoading = false
     
+    @Published var isShowingDetail = false
+    @Published var selectedSnack: Snack?
+    
     func getSnacks() {
         isLoading = true
         NetworkManager.shared.getSnacks { result in

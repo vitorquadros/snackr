@@ -57,13 +57,7 @@ struct SnackDetailView: View {
             Button {
                 
             } label: {
-                Text("$\(snack.price, specifier: "%.2f") - Order Now")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .frame(width: 260, height: 50)
-                    .foregroundColor(.white)
-                    .background(.brandPrimary)
-                    .cornerRadius(10)
+               SNButton(title: "$\(snack.price, specifier: "%.2f") - Order Now")
             }
                 .padding(.bottom, 30)
         }
@@ -74,17 +68,7 @@ struct SnackDetailView: View {
         .overlay(Button {
             isShowingDetail = false
         } label: {
-            ZStack {
-                Circle()
-                    .frame(width: 36, height: 36)
-                    .foregroundColor(.white)
-                    .opacity(0.6)
-                
-                Image(systemName: "xmark")
-                    .frame(width: 44, height: 44)
-                    .imageScale(.small)
-                    .foregroundColor(.black)
-            }
+            XDismissButton()
             .padding([.top, .trailing], 2)
         }, alignment: .topTrailing)
     }
