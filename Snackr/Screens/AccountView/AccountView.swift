@@ -39,6 +39,9 @@ struct AccountView: View {
             }
             .navigationTitle("Account")
         }
+        .onAppear {
+            vm.retrieveUser()
+        }
         .alert(item: $vm.alertItem) { alertItem in
             Alert(title: alertItem.title,
                   message: alertItem.message,

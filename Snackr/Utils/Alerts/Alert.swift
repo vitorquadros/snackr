@@ -49,4 +49,8 @@ struct AlertContext {
     static let userSaveFailed  = AlertItem(title: Text("Error"),
                                             message: Text("There was an error saving your profile. Please try again later."),
                                             dismissButton: .default(Text("OK")))
+    
+    static let userRetrieveFailed  = AlertItem(title: Text("Error"),
+                                            message: Text("There was an error retrieving your profile. Please try again later."),
+                                            dismissButton: .default(Text("OK")))
 }

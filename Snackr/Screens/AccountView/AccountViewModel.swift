@@ -28,7 +28,13 @@ final class AccountViewModel: ObservableObject {
     }
     
     func retrieveUser() {
+        guard let userData = userData else { return }
         
+        do {
+            user = try JSONDecoder().decode(User.self, from: userData)
+        } catch {
+            alertItem = AlertContext.userRetrieveFailed
+        }
     }
     
     var isValidForm: Bool {
