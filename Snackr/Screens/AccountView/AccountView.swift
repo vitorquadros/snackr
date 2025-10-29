@@ -25,7 +25,7 @@ struct AccountView: View {
                         .datePickerStyle(.compact)
                     
                     Button {
-                        
+                        vm.saveChanges()
                     } label: {
                         Text("Save Changes")
                     }
@@ -38,6 +38,11 @@ struct AccountView: View {
                 .toggleStyle(SwitchToggleStyle(tint: .brandPrimary))
             }
             .navigationTitle("Account")
+        }
+        .alert(item: $vm.alertItem) { alertItem in
+            Alert(title: alertItem.title,
+                  message: alertItem.message,
+                  dismissButton: alertItem.dismissButton)
         }
     }
 }
