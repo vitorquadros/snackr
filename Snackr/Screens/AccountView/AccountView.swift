@@ -14,14 +14,14 @@ struct AccountView: View {
         NavigationStack {
             Form {
                 Section("Personal Info") {
-                    TextField("First Name", text: $vm.firstName)
-                    TextField("Last Name", text: $vm.lastName)
-                    TextField("Email", text: $vm.email)
+                    TextField("First Name", text: $vm.user.firstName)
+                    TextField("Last Name", text: $vm.user.lastName)
+                    TextField("Email", text: $vm.user.email)
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .autocorrectionDisabled()
                     
-                    DatePicker("Birthdate", selection: $vm.birthdate, displayedComponents: .date)
+                    DatePicker("Birthdate", selection: $vm.user.birthDate, displayedComponents: .date)
                         .datePickerStyle(.compact)
                     
                     Button {
@@ -32,8 +32,8 @@ struct AccountView: View {
                 }
                 
                 Section("Requests") {
-                    Toggle("Extra Napkins", isOn: $vm.extraNapkins)
-                    Toggle("Frequent Refills", isOn: $vm.frequentRefills)
+                    Toggle("Extra Napkins", isOn: $vm.user.extraNapkins)
+                    Toggle("Frequent Refills", isOn: $vm.user.frequentRefills)
                 }
                 .toggleStyle(SwitchToggleStyle(tint: .brandPrimary))
             }

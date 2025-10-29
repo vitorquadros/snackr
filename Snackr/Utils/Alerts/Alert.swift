@@ -41,4 +41,12 @@ struct AlertContext {
     static let emptyFields     = AlertItem(title: Text("Empty Fields"),
                                            message: Text("Please fill in all fields."),
                                            dismissButton: .default(Text("OK")))
+    
+    static let userSaveSuccess = AlertItem(title: Text("Success"),
+                                            message: Text("Your profile was successfully updated."),
+                                            dismissButton: .default(Text("OK")))
+    
+    static let userSaveFailed  = AlertItem(title: Text("Error"),
+                                            message: Text("There was an error saving your profile. Please try again later."),
+                                            dismissButton: .default(Text("OK")))
 }
