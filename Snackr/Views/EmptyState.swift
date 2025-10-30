@@ -14,7 +14,7 @@ struct EmptyState: View {
     var body: some View {
         ZStack {
             Color(.systemBackground)
-                .ignoresSafeArea()
+                .ignoresSafeArea(edges: .bottom)
             
             VStack {
                 Image(image)
