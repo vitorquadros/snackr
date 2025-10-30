@@ -17,9 +17,7 @@ struct OrderView: View {
                     ForEach(orderItems) { snack in
                         SnackListCell(snack: snack)
                     }
-                    .onDelete { indexSet in
-                        orderItems.remove(atOffsets: indexSet)
-                    }
+                    .onDelete(perform: deleteItems)
                 }
                 .listStyle(PlainListStyle())
                 
@@ -34,6 +32,10 @@ struct OrderView: View {
             }
             .navigationTitle("Orders")
         }
+    }
+    
+    func deleteItems(at offsets: IndexSet) {
+        orderItems.remove(atOffsets: offsets)
     }
 }
 
