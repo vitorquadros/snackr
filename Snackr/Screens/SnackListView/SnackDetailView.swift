@@ -11,6 +11,8 @@ struct SnackDetailView: View {
     let snack: Snack
     @Binding var isShowingDetail: Bool
     
+    @EnvironmentObject var order: Order
+    
     var body: some View {
         VStack {
             AsyncImage(url: URL(string: snack.imageURL)) {
@@ -55,7 +57,7 @@ struct SnackDetailView: View {
             Spacer()
             
             Button {
-                
+                order.add(snack)
             } label: {
                SNButton(title: "$\(snack.price, specifier: "%.2f") - Order Now")
             }
