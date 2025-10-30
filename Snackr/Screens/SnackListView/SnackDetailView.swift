@@ -58,6 +58,7 @@ struct SnackDetailView: View {
             
             Button {
                 order.add(snack)
+                isShowingDetail = false
             } label: {
                SNButton(title: "$\(snack.price, specifier: "%.2f") - Order Now")
             }
