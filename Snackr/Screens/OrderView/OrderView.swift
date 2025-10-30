@@ -12,10 +12,7 @@ struct OrderView: View {
     
     @EnvironmentObject var order: Order
     
-    var sum: String {
-       let sum = order.items.reduce(0) { $0 + $1.price }
-       return String(format: "$%.2f", sum)
-    }
+   
     
     var body: some View {
         NavigationStack {
@@ -25,7 +22,7 @@ struct OrderView: View {
                         ForEach(order.items) { snack in
                             SnackListCell(snack: snack)
                         }
-                        .onDelete(perform: deleteItems)
+                        .onDelete(perform: order.deleteItems)
                     }
                     .listStyle(PlainListStyle())
                     
@@ -34,7 +31,7 @@ struct OrderView: View {
                     Button {
                         
                     } label: {
-                        SNButton(title: "\(sum) - Place Order")
+                        SNButton(title: "$\(order.totalPrice, specifier: "%.2f") - Place Order")
                     }
                     .padding(.bottom, 20)
                 }
@@ -49,9 +46,6 @@ struct OrderView: View {
         }
     }
     
-    func deleteItems(at offsets: IndexSet) {
-        order.items.remove(atOffsets: offsets)
-    }
 }
 
 #Preview {
