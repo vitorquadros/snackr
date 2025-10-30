@@ -28,7 +28,6 @@ struct SnackTabView: View {
                     Text("Order")
                 }
         }
-        .accentColor(.brandPrimary)
     }
 }
 
