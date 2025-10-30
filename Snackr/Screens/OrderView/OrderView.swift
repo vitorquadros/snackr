@@ -10,12 +10,19 @@ import SwiftUI
 struct OrderView: View {
     @State private var orderItems = MockData.orderItems
     
+    @EnvironmentObject var order: Order
+    
+    var sum: String {
+       let sum = order.items.reduce(0) { $0 + $1.price }
+       return String(format: "$%.2f", sum)
+    }
+    
     var body: some View {
         NavigationStack {
             ZStack {
                 VStack {
                     List {
-                        ForEach(orderItems) { snack in
+                        ForEach(order.items) { snack in
                             SnackListCell(snack: snack)
                         }
                         .onDelete(perform: deleteItems)
@@ -27,7 +34,7 @@ struct OrderView: View {
                     Button {
                         
                     } label: {
-                        SNButton(title: "$99 - Place Order")
+                        SNButton(title: "\(sum) - Place Order")
                     }
                     .padding(.bottom, 20)
                 }
@@ -43,7 +50,7 @@ struct OrderView: View {
     }
     
     func deleteItems(at offsets: IndexSet) {
-        orderItems.remove(atOffsets: offsets)
+        order.items.remove(atOffsets: offsets)
     }
 }
 
