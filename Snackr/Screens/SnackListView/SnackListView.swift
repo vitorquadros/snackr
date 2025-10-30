@@ -16,6 +16,8 @@ struct SnackListView: View {
             NavigationStack {
                 List(vm.snacks) { snack in
                     SnackListCell(snack: snack)
+                        .listRowSeparator(.visible)
+                    
                         .onTapGesture {
                             vm.selectedSnack = snack
                             vm.isShowingDetail = true
