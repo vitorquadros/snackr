@@ -29,8 +29,9 @@ struct OrderView: View {
                     Button {
                         
                     } label: {
-                        SNButton(title: "$\(order.totalPrice, specifier: "%.2f") - Place Order")
+                        Text("$\(order.totalPrice, specifier: "%.2f") - Place Order")
                     }
+                    .modifier(StandardButtonStyle())
                     .padding(.bottom, 20)
                 }
                 

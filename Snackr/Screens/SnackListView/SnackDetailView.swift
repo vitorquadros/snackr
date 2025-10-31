@@ -60,9 +60,10 @@ struct SnackDetailView: View {
                 order.add(snack)
                 isShowingDetail = false
             } label: {
-               SNButton(title: "$\(snack.price, specifier: "%.2f") - Order Now")
+                Text("$\(snack.price, specifier: "%.2f") - Order Now")
             }
-                .padding(.bottom, 30)
+            .modifier(StandardButtonStyle())
+            .padding(.bottom, 30)
         }
         .frame(width: 300, height: 525)
         .background(Color(.systemBackground))
