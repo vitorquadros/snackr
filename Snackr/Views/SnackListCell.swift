@@ -32,33 +32,20 @@ struct SnackCellImage: View {
     let snack: Snack
     
     var body: some View {
-        AsyncImage(url: URL(string: snack.imageURL)) { phase in
-            switch phase {
-            case .empty:
-                Image("food-placeholder")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 120, height: 90)
-                    .cornerRadius(8)
-                    .opacity(0.5)
-            case .success(let image):
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 120, height: 90)
-                    .cornerRadius(8)
-            case .failure:
-                Image("food-placeholder")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 120, height: 90)
-                    .cornerRadius(8)
-                    .opacity(0.5)
-            @unknown default:
-                EmptyView()
-            }
+        AsyncImage(url: URL(string: snack.imageURL)) { image in
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 120, height: 90)
+                .cornerRadius(8)
+        } placeholder: {
+            Image("food-placeholder")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 120, height: 90)
+                .cornerRadius(8)
+                .opacity(0.5)
         }
-        .frame(width: 120, height: 90)
     }
 }
 
