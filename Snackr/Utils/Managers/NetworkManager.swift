@@ -15,37 +15,23 @@ final class NetworkManager {
     
     private init() {}
     
-    func getSnacks(completed: @escaping (Result<[Snack], SNError>) -> Void) {
+    func getSnacks() async throws -> [Snack] {
         guard let url = URL(string: snackURL) else {
-            completed(.failure(.invalidURL))
-            return
+            throw SNError.invalidURL
         }
         
-        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { (data, response, error) in
-            if let _ = error {
-                completed(.failure(.unableToComplete))
-                return
-            }
-            
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(.failure(.invalidResponse))
-                return
-            }
-            
-            guard let data = data else {
-                completed(.failure(.invalidData))
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let decodedResponse = try decoder.decode(SnackResponse.self, from: data)
-                completed(.success(decodedResponse.request))
-            } catch {
-                completed(.failure(.invalidData))
-            }
-        }
+        let (data, _) = try await URLSession.shared.data(from: url)
         
-        task.resume()
+//        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+//            throw SNError.invalidResponse
+//        }
+        
+        do {
+            let decoder = JSONDecoder()
+            let decodedResponse = try decoder.decode(SnackResponse.self, from: data)
+            return decodedResponse.request
+        } catch {
+            throw SNError.invalidData
+        }
     }
 }

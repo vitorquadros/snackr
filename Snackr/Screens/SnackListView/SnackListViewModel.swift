@@ -20,29 +20,28 @@ final class SnackListViewModel: ObservableObject {
     
     func getSnacks() {
         isLoading = true
-        NetworkManager.shared.getSnacks { result in
-            DispatchQueue.main.async {
-                self.isLoading = false
-                
-                switch result {
-                case .success(let snacks):
-                    self.snacks = snacks
-                    
-                case .failure(let error):
-                    switch error {
-                    case .invalidResponse:
-                        self.alertItem = AlertContext.invalidResponse
-                        
-                    case .invalidData:
-                        self.alertItem = AlertContext.invalidData
-                        
+
+        Task {
+            do {
+                snacks = try await NetworkManager.shared.getSnacks()
+                isLoading = false
+            } catch {
+                if let snackError = error as? SNError {
+                    switch snackError {
                     case .invalidURL:
-                        self.alertItem = AlertContext.invalidURL
-                        
+                        alertItem = AlertContext.invalidURL
+                    case .invalidResponse:
+                        alertItem = AlertContext.invalidResponse
+                    case .invalidData:
+                        alertItem = AlertContext.invalidData
                     case .unableToComplete:
-                        self.alertItem = AlertContext.unableToComplete
+                        alertItem = AlertContext.unableToComplete
                     }
-                }  
+                } else {
+                    alertItem = AlertContext.genericError
+                }
+               
+                isLoading = false
             }
         }
     }

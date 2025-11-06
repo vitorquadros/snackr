@@ -26,7 +26,7 @@ struct SnackListView: View {
                 .navigationTitle("Snacks")
                 .disabled(vm.isShowingDetail)
             }
-            .onAppear {
+            .task {
                 vm.getSnacks()
             }
             .blur(radius: vm.isShowingDetail ? 20 : 0)

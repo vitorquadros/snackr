@@ -53,4 +53,8 @@ struct AlertContext {
     static let userRetrieveFailed  = AlertItem(title: Text("Error"),
                                             message: Text("There was an error retrieving your profile. Please try again later."),
                                             dismissButton: .default(Text("OK")))
+    
+    static let genericError     = AlertItem(title: Text("Error"),
+                                            message: Text("There was an error. Please try again later."),
+                                            dismissButton: .default(Text("OK")))
 }
