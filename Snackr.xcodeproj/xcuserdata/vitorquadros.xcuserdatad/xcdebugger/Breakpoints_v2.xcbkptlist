@@ -114,36 +114,6 @@
             endingLineNumber = "13"
             landmarkName = "isValidEmail"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "652B894B-6FEA-48C5-B027-2609CC86D12C - d2060fe37532162d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Swift.String.isValidEmail.getter : Swift.Bool"
-                  moduleName = "Snackr.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vitorquadros/Documents/projects/Snackr/Snackr/Utils/Extensions/String+Ext.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13">
-               </Location>
-               <Location
-                  uuid = "652B894B-6FEA-48C5-B027-2609CC86D12C - 5aae0bbd70e950e3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; _StringProcessing.Regex&lt;Swift.Substring&gt; in Swift.String.isValidEmail.getter : Swift.Bool"
-                  moduleName = "Snackr.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vitorquadros/Documents/projects/Snackr/Snackr/Utils/Extensions/String+Ext.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

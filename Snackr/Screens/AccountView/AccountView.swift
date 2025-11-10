@@ -37,7 +37,10 @@ struct AccountView: View {
                         .autocapitalization(.none)
                         .autocorrectionDisabled()
                     
-                    DatePicker("Birthdate", selection: $vm.user.birthDate, displayedComponents: .date)
+                    DatePicker("Birthdate",
+                               selection: $vm.user.birthDate,
+                               in: Date().oneHundredTenYearsAgo...Date().eighteenYearsAgo,
+                               displayedComponents: .date)
                         .datePickerStyle(.compact)
                     
                     Button {
